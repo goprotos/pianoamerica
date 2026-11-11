@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piano America — Hear every key before you buy</title>
+<meta name="description" content="Restored Yamaha and Kawai pianos, inspected against 88 points and recorded key by key, delivered and tuned anywhere in the lower 48. New Kawai digital pianos from an authorized dealer.">
+<link rel="canonical" href="https://www.pianoamerica.com/">
+<link rel="icon" type="image/png" href="./favicon.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Piano America — Hear every key before you buy">
+<meta property="og:description" content="Every piano we sell is recorded, all 88 keys, on the actual instrument you would receive. Restored Yamaha & Kawai acoustics and new Kawai digitals, delivered nationwide.">
+<meta property="og:image" content="https://www.pianoamerica.com/social-image.jpg">
+<meta property="og:url" content="https://www.pianoamerica.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+  :root { --ink: #0B0A09; --ink-2: #121010; --ink-3: #060504; --cream: #F4F1E8; --cream-ink: #14120F; --cream-2: #4A443A; --cream-3: #6B6457; --cream-line: #DFD8C7; --gold: #C9922E; --gold-ink: #8A6A1F; --gold-hi: #E3B557; --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', system-ui, sans-serif; --shop: https://shop.pianoamerica.com; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--ink); color: var(--cream); font-family: var(--sans); font-weight: 400; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1240px; margin: 0 auto; }
+  .serif { font-family: var(--serif); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; }
+  .btn { display: inline-block; color: var(--ink); background: var(--gold); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 28px; border-radius: 2px; font-weight: 500; transition: background .25s; }
+  .btn:hover { background: var(--gold-hi); }
+  .btn.dark { color: var(--cream); background: var(--cream-ink); }
+  .btn.dark:hover { background: #000; }
+  .link { font-size: 14px; letter-spacing: 0.06em; color: var(--gold-ink); border-bottom: 1px solid rgba(138,106,31,0.4); padding-bottom: 2px; }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; background: var(--ink); }
+  .hero-media { position: relative; width: 100%; aspect-ratio: 16 / 9; min-height: 440px; max-height: 92vh; overflow: hidden; }
+  .hero-media picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% center; }
+  .hero-media::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 300px; background: linear-gradient(to top, rgba(6,5,4,.94), rgba(6,5,4,0)); }
+  .nav { position: relative; z-index: 3; display: flex; align-items: center; gap: 24px 40px; padding: 26px 48px 26px 13%; }
+  .nav .logo img { height: 62px; width: auto; }
+  .nav .links { margin-left: auto; display: flex; align-items: center; gap: 8px 30px; }
+  .nav .links a { color: var(--cream); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 2px; text-shadow: 0 1px 10px rgba(0,0,0,.7); }
+  .nav .links a.tel { color: var(--gold); white-space: nowrap; }
+  .nav .links .btn { padding: 13px 24px; }
+  .burger, .mob-only { display: none; }
+  .np-wrap { position: relative; z-index: 2; margin-top: -104px; padding: 0 48px 64px; }
+  .np { display: inline-flex; flex-direction: column; gap: 20px; max-width: 620px; padding: 28px 32px; background: rgba(8,7,6,.82); border: 1px solid rgba(201,146,46,.45); border-radius: 3px; }
+  .np-label { display: flex; align-items: center; gap: 12px; }
+  .np-label i { display: block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .np-label .eyebrow { letter-spacing: 0.22em; color: var(--gold); }
+  .np-label small { font-size: 12px; letter-spacing: 0.08em; color: rgba(244,241,232,.55); }
+  .np-row { display: flex; align-items: center; gap: 20px; }
+  .play { flex: 0 0 auto; width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--gold); background: rgba(201,146,46,.12); color: var(--gold); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 17px; font-family: var(--sans); padding: 0; }
+  .bars { display: flex; align-items: flex-end; gap: 3px; height: 46px; flex: 1 1 auto; }
+  .bars b { display: block; flex: 1 1 auto; max-width: 4px; border-radius: 2px; background: rgba(244,241,232,.26); transform-origin: bottom; }
+  .is-playing .bars b { background: var(--gold); animation: eq 1.05s ease-in-out infinite alternate; }
+  @keyframes eq { from { transform: scaleY(.32); } to { transform: scaleY(1); } }
+  .np-title { font-family: var(--serif); font-size: 30px; line-height: 1.15; }
+  .np-sub { margin-top: 7px; font-size: 15px; color: rgba(244,241,232,.68); line-height: 1.5; }
+  .np-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+  .np-price { font-family: var(--serif); font-size: 27px; color: var(--gold); }
+  .tag { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,241,232,.6); border: 1px solid rgba(244,241,232,.26); padding: 7px 12px; border-radius: 2px; }
+  .np-foot .btn { margin-left: auto; padding: 14px 26px; letter-spacing: 0.08em; text-transform: none; }
+
+  /* ---------- comparison ---------- */
+  .cream { background: var(--cream); color: var(--cream-ink); }
+  .section { padding: 110px 48px; }
+  .intro { max-width: 720px; }
+  .cream .eyebrow { color: var(--gold-ink); }
+  h2 { margin: 18px 0 0; font-family: var(--serif); font-weight: 600; font-size: 54px; line-height: 1.08; letter-spacing: -0.01em; }
+  .lead { margin: 22px 0 0; font-size: 18px; line-height: 1.65; color: var(--cream-2); }
+  .lead + .lead { margin-top: 16px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+  .card { padding: 22px 24px 26px; border-radius: 3px; background: #fff; border: 1px solid #E2DCCC; transition: border-color .25s, box-shadow .25s; }
+  .card.is-playing { border-color: var(--gold); box-shadow: 0 2px 0 0 var(--gold); }
+  .card .pic { background: #fff; border-radius: 2px; overflow: hidden; }
+  .card .pic img { width: 100%; height: 230px; object-fit: contain; }
+  .card .np-row { margin-top: 22px; gap: 15px; }
+  .card .play { width: 46px; height: 46px; border: 1px solid #CFC6B2; background: #fff; color: var(--cream-ink); font-size: 14px; }
+  .card.is-playing .play { border-color: var(--gold); background: var(--gold); }
+  .card .bars { height: 34px; gap: 2px; }
+  .card .bars b { background: rgba(20,18,15,.2); }
+  .card h3 { margin: 20px 0 0; font-family: var(--serif); font-weight: 600; font-size: 25px; line-height: 1.2; }
+  .card .sub { margin-top: 5px; font-size: 15px; color: var(--cream-3); }
+  .card .foot { display: flex; align-items: center; gap: 14px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--cream-line); }
+  .card .price { font-family: var(--serif); font-size: 24px; }
+  .card .link { margin-left: auto; }
+  .note { margin: 44px 0 0; font-size: 15px; color: var(--cream-3); }
+
+  /* ---------- trust ---------- */
+  .trust { background: var(--ink-2); padding: 72px 48px; border-top: 1px solid rgba(201,146,46,.22); border-bottom: 1px solid rgba(201,146,46,.22); }
+  .trust .wrap { display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; }
+  .trust .rule { width: 26px; height: 1px; background: var(--gold); }
+  .trust .t { margin-top: 16px; font-family: var(--serif); font-size: 21px; line-height: 1.25; }
+  .trust .b { margin-top: 8px; font-size: 14px; line-height: 1.55; color: rgba(244,241,232,.62); }
+
+  /* ---------- two paths ---------- */
+  .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .path { display: block; background: #fff; border: 1px solid #E2DCCC; border-radius: 3px; overflow: hidden; color: inherit; }
+  .path img { width: 100%; height: 320px; object-fit: contain; background: #fff; }
+  .path .body { padding: 32px 34px 36px; }
+  .path .eyebrow { letter-spacing: 0.22em; }
+  .path h3 { margin: 14px 0 0; font-family: var(--serif); font-weight: 600; font-size: 38px; line-height: 1.1; }
+  .path p { margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: var(--cream-2); }
+  .path .go { margin-top: 26px; font-size: 15px; letter-spacing: 0.08em; color: var(--gold-ink); }
+
+  /* ---------- standard ---------- */
+  .standard { background: var(--ink); }
+  .standard .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .standard .eyebrow { color: var(--gold); }
+  .standard .lead { color: rgba(244,241,232,.72); }
+  .report { border: 1px solid rgba(201,146,46,.35); border-radius: 3px; padding: 30px 32px; background: var(--ink-2); }
+  .report .head { display: flex; align-items: baseline; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid rgba(244,241,232,.14); }
+  .report .head .serif { font-size: 22px; }
+  .report .head .no { margin-left: auto; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .report .row { display: flex; align-items: baseline; gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(244,241,232,.08); }
+  .report .row .n { font-size: 12px; color: rgba(244,241,232,.38); width: 30px; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
+  .report .row .i { font-size: 15px; color: rgba(244,241,232,.82); flex: 1; }
+  .report .row .g { font-size: 13px; letter-spacing: .08em; color: var(--gold); white-space: nowrap; }
+  .report .sig { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
+  .report .sig .name { font-family: var(--serif); font-size: 21px; }
+  .report .sig .sub { margin-top: 3px; font-size: 13px; color: rgba(244,241,232,.52); }
+  .report .sig .tag { margin-left: auto; color: var(--gold); border-color: rgba(201,146,46,.5); padding: 8px 13px; white-space: nowrap; }
+
+  /* ---------- teachers ---------- */
+  .teachers { text-align: center; padding: 100px 48px; }
+  .teachers .rule { width: 40px; height: 1px; background: var(--gold-ink); margin: 0 auto 26px; }
+  .teachers h2 { font-size: 46px; line-height: 1.12; }
+  .teachers .lead { max-width: 700px; margin-left: auto; margin-right: auto; }
+  .teachers .btn { margin-top: 30px; padding: 16px 32px; }
+
+  /* ---------- footer ---------- */
+  footer { background: var(--ink-3); padding: 68px 48px 52px; border-top: 1px solid rgba(201,146,46,.2); }
+  .fgrid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; }
+  footer .logo img { height: 84px; width: auto; }
+  footer address { margin: 20px 0 0; font-style: normal; font-size: 15px; line-height: 1.6; color: rgba(244,241,232,.55); }
+  footer address a { color: var(--cream); }
+  footer .head { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+  footer .col a { display: block; padding: 7px 0; font-size: 15px; color: rgba(244,241,232,.68); }
+  footer .legal { margin: 44px auto 0; padding-top: 24px; border-top: 1px solid rgba(244,241,232,.1); font-size: 13px; color: rgba(244,241,232,.4); }
+
+  /* ---------- mobile menu ---------- */
+  .menu { position: fixed; inset: 0; z-index: 50; background: #060504; display: none; flex-direction: column; padding: 24px 24px 40px; }
+  .menu.open { display: flex; }
+  .menu .top { display: flex; align-items: center; }
+  .menu .top img { height: 52px; }
+  .menu .close { margin-left: auto; width: 44px; height: 44px; border: 0; background: transparent; color: var(--cream); font-size: 28px; cursor: pointer; }
+  .menu nav { margin-top: 40px; display: flex; flex-direction: column; }
+  .menu nav a { font-family: var(--serif); font-size: 34px; padding: 12px 0; border-bottom: 1px solid rgba(244,241,232,.1); }
+  .menu .foot { margin-top: auto; }
+  .menu .foot a.tel { display: block; font-size: 22px; color: var(--gold); margin-bottom: 18px; }
+  .menu .foot .btn { display: block; text-align: center; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1100px) {
+    .nav { padding-left: 48px; }
+    .cards, .trust .wrap { grid-template-columns: repeat(2, 1fr); }
+    .standard .wrap, .paths { grid-template-columns: 1fr; }
+    .fgrid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 749px) {
+    .section { padding: 72px 20px; }
+    h2 { font-size: 38px; }
+    .lead { font-size: 16px; }
+    .nav { padding: 14px 16px; gap: 10px; }
+    .nav .logo img { height: 52px; }
+    .nav .links { display: none; }
+    .burger, .mob-only { display: flex; }
+    .nav .icon { width: 44px; height: 44px; border: 0; background: transparent; color: var(--cream); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; }
+    .nav .icon.tel { color: var(--gold); margin-left: auto; }
+    .hero-media { aspect-ratio: auto; height: 580px; min-height: 0; }
+    .hero-media picture img { object-position: center 38%; }
+    .hero-media::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 150px; background: linear-gradient(to bottom, rgba(6,5,4,.88), rgba(6,5,4,0)); z-index: 1; }
+    .hero-media::after { height: 320px; background: linear-gradient(to top, rgba(6,5,4,.97), rgba(6,5,4,.55) 45%, rgba(6,5,4,0)); }
+    .hero-copy { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 0 20px 26px; }
+    .hero-copy h1 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 44px; line-height: 1.02; letter-spacing: -0.01em; }
+    .hero-copy p { margin: 12px 0 0; font-size: 15px; line-height: 1.5; color: rgba(244,241,232,.74); }
+    .np-wrap { margin-top: 0; padding: 18px 20px 0; }
+    .np { display: flex; max-width: none; padding: 18px; background: var(--ink-2); gap: 16px; }
+    .np-title { font-size: 23px; }
+    .np-label .eyebrow { white-space: nowrap; }
+    .np-label small { display: none; }
+    .np-price { font-size: 24px; }
+    .np-foot .btn { margin-left: 0; width: 100%; text-align: center; }
+    .hero { padding-bottom: 56px; }
+    .cards { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
+    .trust { padding: 56px 20px; }
+    .trust .wrap { grid-template-columns: 1fr; gap: 28px; }
+    .path img { height: 240px; }
+    .path .body { padding: 24px 22px 28px; }
+    .path h3 { font-size: 30px; }
+    .report { padding: 22px 20px; }
+    .teachers { padding: 72px 20px; }
+    .teachers h2 { font-size: 36px; }
+    footer { padding: 48px 20px 40px; }
+    .fgrid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (min-width: 750px) { .hero-copy { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-media">
+    <picture>
+      <source media="(max-width: 749px)" srcset="./img/hero-mobile.jpg">
+      <img src="./img/hero.jpg" alt="A polished ebony grand piano in the Piano America showroom" fetchpriority="high">
+    </picture>
+
+    <nav class="nav">
+      <a href="#top" class="logo"><img src="./img/badge.png" alt="Piano America"></a>
+      <div class="links">
+        <a href="https://shop.pianoamerica.com/collections/used-acoustics">Used Acoustics</a>
+        <a href="https://shop.pianoamerica.com/collections/kawai-digitals">New Digitals</a>
+        <a href="#standard">The 88-Point Standard</a>
+        <a href="#teachers">For Teachers</a>
+        <a class="tel" href="tel:3043123608">(304) 312-3608</a>
+        <a class="btn" href="https://shop.pianoamerica.com/collections/all">Browse Pianos</a>
+      </div>
+      <a class="icon tel mob-only" href="tel:3043123608" aria-label="Call Piano America at (304) 312-3608">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>
+      </a>
+      <button class="icon burger" type="button" aria-label="Open menu" id="menu-open">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      </button>
+    </nav>
+
+    <div class="hero-copy">
+      <h1>Hear it before<br>you buy it.</h1>
+      <p>All 88 keys, then every pedal — recorded on the actual instrument you would receive.</p>
+    </div>
+  </div>
+
+  <!-- now playing -->
+  <div class="np-wrap">
+    <div class="wrap">
+      <div class="np is-playing" id="np">
+        <div class="np-label"><i></i><span class="eyebrow" id="np-state">Now playing</span><small>· from our Wheeling showroom floor</small></div>
+        <div class="np-row">
+          <button class="play" id="np-btn" type="button" aria-label="Pause the recording">❙❙</button>
+          <div class="bars" data-bars="52" data-seed="1.9"></div>
+        </div>
+        <div>
+          <div class="np-title">1984 Yamaha U1 · Polished Ebony</div>
+          <div class="np-sub">All 88 keys in sequence, then every pedal — the same recording we make of every piano we sell.</div>
+        </div>
+        <div class="np-foot">
+          <span class="np-price">$5,499</span>
+          <span class="tag">88-Point Inspected</span>
+          <a class="btn" href="https://shop.pianoamerica.com/products/1984-yamaha-u1-polished-ebony">See this piano</a>
+        </div>
+        <audio id="np-audio" preload="none"></audio>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ THE COMPARISON ============ -->
+<section class="cream section" id="recordings">
+  <div class="wrap">
+    <div class="intro reveal">
+      <div class="eyebrow">Why we record every instrument</div>
+      <h2>All 88 keys.<br>Every piano.</h2>
+      <p class="lead">Most dealers post a photograph and a paragraph. We play every one of the 88 keys in sequence, test all three pedals, and finish with the same short piece on every instrument — recorded in one room, through the same two microphones, at settings that never move.</p>
+      <p class="lead">A dead note, an uneven bass or a slow damper becomes something you hear for yourself, rather than something you take on trust.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card is-playing reveal" data-card>
+        <div class="pic"><img src="./img/upright-ebony.jpg" alt="Yamaha U1M upright in polished ebony" loading="lazy"></div>
+        <div class="np-row"><button class="play" type="button" aria-label="Play 1982 Yamaha U1M">❙❙</button><div class="bars" data-bars="34" data-seed="1.3"></div></div>
+        <h3>1982 Yamaha U1M</h3>
+        <div class="sub">Polished ebony · 48″ upright</div>
+        <div class="foot"><span class="price">$5,800</span><a class="link" href="https://shop.pianoamerica.com/products/1982-yamaha-u1m-polished-ebony">View details</a></div>
+      </article>
+      <article class="card reveal" data-card>
+        <div class="pic"><img src="./img/upright-ebony.jpg" alt="Kawai K-30 upright in polished ebony" loading="lazy"></div>
+        <div class="np-row"><button class="play" type="button" aria-label="Play 2001 Kawai K-30">▶</button><div class="bars" data-bars="34" data-seed="1.9"></div></div>
+        <h3>2001 Kawai K-30</h3>
+        <div class="sub">Polished ebony · 48″ upright</div>
+        <div class="foot"><span class="price">$5,499</span><a class="link" href="https://shop.pianoamerica.com/products/2001-kawai-k-30-polished-ebony">View details</a></div>
+      </article>
+      <article class="card reveal" data-card>
+        <div class="pic"><img src="./img/grand-ebony.jpg" alt="Kawai KG3E grand in polished ebony" loading="lazy"></div>
+        <div class="np-row"><button class="play" type="button" aria-label="Play 1989 Kawai KG3E">▶</button><div class="bars" data-bars="34" data-seed="2.5"></div></div>
+        <h3>1989 Kawai KG3E</h3>
+        <div class="sub">Polished ebony · 6′1″ grand</div>
+        <div class="foot"><span class="price">$7,999</span><a class="link" href="https://shop.pianoamerica.com/products/1989-kawai-kg3e-polished-ebony">View details</a></div>
+      </article>
+    </div>
+
+    <p class="note reveal">Every recording is of the actual instrument you would receive — never a stock clip of the same model. 88 keys, 88 inspection points, nothing left out.</p>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<section class="trust">
+  <div class="wrap">
+    <div class="reveal"><div class="rule"></div><div class="t">Every key on video</div><div class="b">All 88 keys and all three pedals, on the instrument you would actually receive.</div></div>
+    <div class="reveal"><div class="rule"></div><div class="t">Trade-up guarantee</div><div class="b">Your full purchase price as credit toward a larger piano.</div></div>
+    <div class="reveal"><div class="rule"></div><div class="t">Ten-year warranty</div><div class="b">Parts and labour. Not a limited warranty on selected components.</div></div>
+    <div class="reveal"><div class="rule"></div><div class="t">Free in-home tuning</div><div class="b">A technician visits once the piano has settled into your room.</div></div>
+    <div class="reveal"><div class="rule"></div><div class="t">Published prices</div><div class="b">Every price on the website. No quote requests, no negotiation.</div></div>
+  </div>
+</section>
+
+<!-- ============ TWO PATHS ============ -->
+<section class="cream section" id="acoustics">
+  <div class="wrap">
+    <div class="paths">
+      <a class="path reveal" href="https://shop.pianoamerica.com/collections/used-acoustics">
+        <img src="./img/upright-mahogany.jpg" alt="A polished mahogany upright piano" loading="lazy">
+        <div class="body">
+          <div class="eyebrow">Shipped nationwide from Wheeling</div>
+          <h3>Used Kawai &amp; Yamaha Acoustics</h3>
+          <p>Japanese-built uprights and grands, restored and regulated, each one inspected point by point before it is listed.</p>
+          <div class="go">Browse acoustics →</div>
+        </div>
+      </a>
+      <a class="path reveal" href="https://shop.pianoamerica.com/collections/kawai-digitals" id="digitals">
+        <img src="./img/kawai-digital.jpg" alt="A Kawai digital grand piano" loading="lazy">
+        <div class="body">
+          <div class="eyebrow">Authorized Kawai dealer</div>
+          <h3>New Kawai Digital Pianos</h3>
+          <p>The full Kawai range, from the ES120 to the Novus hybrids — delivered, unboxed and set up in the room you want it in.</p>
+          <div class="go">Browse digitals →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 88-POINT STANDARD ============ -->
+<section class="standard section" id="standard">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Our inspection standard</div>
+      <h2>Eighty-eight points.<br>Signed by name.</h2>
+      <p class="lead">Every acoustic piano is examined against the same eighty-eight checks — soundboard, bridges, pinblock, action geometry, hammers, dampers, case and finish. A Registered Piano Technician signs the report with their own name, and you read it before you decide, not after it arrives.</p>
+      <p class="lead">No piano leaves this building with a condition described only in adjectives.</p>
+      <a class="btn" href="#standard" style="margin-top: 30px">Read a sample report</a>
+    </div>
+    <div class="report reveal">
+      <div class="head"><span class="serif">Inspection Report</span><span class="no">No. PA-0142</span></div>
+      <div class="row"><span class="n">07</span><span class="i">Soundboard — crown and ribs</span><span class="g">Excellent</span></div>
+      <div class="row"><span class="n">14</span><span class="i">Pinblock — tuning pin torque</span><span class="g">Excellent</span></div>
+      <div class="row"><span class="n">23</span><span class="i">Bridges — cap and pin seating</span><span class="g">Good</span></div>
+      <div class="row"><span class="n">38</span><span class="i">Action geometry — let-off, drop</span><span class="g">Regulated</span></div>
+      <div class="row"><span class="n">51</span><span class="i">Hammers — shape and voicing</span><span class="g">Reshaped</span></div>
+      <div class="row"><span class="n">66</span><span class="i">Dampers — timing and lift</span><span class="g">Good</span></div>
+      <div class="row"><span class="n">79</span><span class="i">Case and finish</span><span class="g">Very good</span></div>
+      <div class="sig"><div><div class="name">Paul Yarish, RPT</div><div class="sub">Registered Piano Technician · Piano Technicians Guild</div></div><span class="tag">Signed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEACHERS ============ -->
+<section class="cream teachers" id="teachers">
+  <div class="wrap reveal">
+    <div class="rule"></div>
+    <div class="eyebrow">For piano teachers</div>
+    <h2>A scholarship in your studio's name</h2>
+    <p class="lead">Ten percent of every instrument bought through your studio goes into a scholarship fund carrying your name — awarded each year to one of your own students. We pay no commissions, so your recommendation stays exactly what it is.</p>
+    <a class="btn dark" href="mailto:info@pianoamerica.com?subject=How%20the%20scholarship%20fund%20works">How the fund works</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="#top" class="logo"><img src="./img/badge.png" alt="Piano America"></a>
+        <address>Piano America LLC<br>1315 Main Street<br>Wheeling, West Virginia 26003<br><a href="tel:3043123608">(304) 312-3608</a><br><a href="mailto:info@pianoamerica.com" style="color: rgba(244,241,232,.55)">info@pianoamerica.com</a></address>
+      </div>
+      <div class="col"><div class="head">Shop</div><a href="https://shop.pianoamerica.com/collections/used-acoustics">Used acoustics</a><a href="https://shop.pianoamerica.com/collections/kawai-digitals">New Kawai digitals</a><a href="https://shop.pianoamerica.com/collections/all?sort_by=created-descending">Recently added</a><a href="mailto:info@pianoamerica.com?subject=Selling%20my%20piano">Sell your piano</a></div>
+      <div class="col"><div class="head">How we work</div><a href="#standard">The 88-Point Standard</a><a href="#recordings">How we record</a><a href="mailto:info@pianoamerica.com?subject=Delivery%20and%20setup">Delivery and setup</a><a href="mailto:info@pianoamerica.com?subject=Warranty%20and%20trade-up">Warranty &amp; trade-up</a></div>
+      <div class="col"><div class="head">Teachers</div><a href="mailto:info@pianoamerica.com?subject=How%20the%20scholarship%20fund%20works">The scholarship fund</a><a href="mailto:info@pianoamerica.com?subject=Teacher%20scholarship%20program">Join the program</a><a href="mailto:info@pianoamerica.com?subject=Find%20a%20studio">Find a studio</a></div>
+    </div>
+    <div class="legal">© 2026 Piano America LLC · Authorized Kawai dealer · Every recording on this site is of the actual instrument offered for sale.</div>
+  </div>
+</footer>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="top"><img src="./img/badge.png" alt="Piano America"><button class="close" type="button" aria-label="Close menu" id="menu-close">×</button></div>
+  <nav>
+    <a href="https://shop.pianoamerica.com/collections/used-acoustics">Used Acoustics</a>
+    <a href="https://shop.pianoamerica.com/collections/kawai-digitals">New Digitals</a>
+    <a href="#standard" data-close>The 88-Point Standard</a>
+    <a href="#teachers" data-close>For Teachers</a>
+  </nav>
+  <div class="foot"><a class="tel" href="tel:3043123608">(304) 312-3608</a><a class="btn" href="https://shop.pianoamerica.com/collections/all">Browse Pianos</a></div>
+</div>
+
+<script>
+(function () {
+  // equalizer bars
+  document.querySelectorAll('.bars').forEach(function (el) {
+    var n = +el.dataset.bars || 40, seed = +el.dataset.seed || 1.9;
+    for (var i = 0; i < n; i++) {
+      var b = document.createElement('b');
+      b.style.height = (16 + Math.abs(Math.sin((i + 1) * seed)) * 76).toFixed(1) + '%';
+      b.style.animationDelay = ((i % 11) * 0.07).toFixed(2) + 's';
+      el.appendChild(b);
+    }
+  });
+
+  // hero now-playing toggle (plays real audio once an MP3 src is set on #np-audio)
+  var np = document.getElementById('np'), btn = document.getElementById('np-btn'), state = document.getElementById('np-state'), audio = document.getElementById('np-audio');
+  var hasAudio = !!audio.getAttribute('src');
+  function setHero(on) {
+    np.classList.toggle('is-playing', on);
+    btn.textContent = on ? '❙❙' : '▶'; state.textContent = on ? 'Now playing' : 'Paused';
+    btn.setAttribute('aria-label', on ? 'Pause the recording' : 'Play the recording');
+    if (hasAudio) { on ? audio.play() : audio.pause(); }
+  }
+  if (hasAudio) setHero(false);
+  btn.addEventListener('click', function () { setHero(!np.classList.contains('is-playing')); });
+  audio.addEventListener('ended', function () { setHero(false); });
+
+  // product cards: one plays at a time
+  var cards = document.querySelectorAll('[data-card]');
+  cards.forEach(function (c) {
+    c.querySelector('.play').addEventListener('click', function () {
+      cards.forEach(function (o) { o.classList.remove('is-playing'); o.querySelector('.play').textContent = '▶'; });
+      c.classList.add('is-playing'); c.querySelector('.play').textContent = '❙❙';
+    });
+  });
+
+  // mobile menu
+  var menu = document.getElementById('menu');
+  function openMenu(o) { menu.classList.toggle('open', o); menu.setAttribute('aria-hidden', !o); document.body.style.overflow = o ? 'hidden' : ''; }
+  document.getElementById('menu-open').addEventListener('click', function () { openMenu(true); });
+  document.getElementById('menu-close').addEventListener('click', function () { openMenu(false); });
+  menu.querySelectorAll('[data-close]').forEach(function (a) { a.addEventListener('click', function () { openMenu(false); }); });
+
+  // scroll reveal
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    els.forEach(function (el) { io.observe(el); });
+  } else { els.forEach(function (el) { el.classList.add('in'); }); }
+})();
+</script>
+<!-- Meta Pixel and Statcounter go here before launch, same as the event sites. -->
+</body>
+</html>
