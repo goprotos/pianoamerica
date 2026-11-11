@@ -588,7 +588,7 @@
     np.classList.add('is-playing'); btn.textContent = '❙❙'; state.textContent = 'Now playing'; btn.setAttribute('aria-label', 'Pause the recording');
     playSrc('./audio/now-playing.mp3');
   }
-  function armFirstGesture() {
+  function armFirstGesture() { return; /* only the play button starts the recording */
     function go(e) {
       document.removeEventListener('pointerdown', go, true); document.removeEventListener('keydown', go, true);
       if (current === null && !(e.target && e.target.closest && e.target.closest('.play'))) startHero();
@@ -601,9 +601,9 @@
     attempt.then(function () {
       current = 'hero'; np.classList.add('is-playing'); btn.textContent = '❙❙'; state.textContent = 'Now playing'; btn.setAttribute('aria-label', 'Pause the recording');
     }).catch(function () {
-      stopAll(); np.classList.add('is-live'); state.textContent = (matchMedia('(hover: none)').matches ? 'Tap' : 'Click') + ' to hear this piano'; armFirstGesture();
+      stopAll(); np.classList.add('is-live'); state.textContent = 'Press play to hear this piano'; armFirstGesture();
     });
-  } else { stopAll(); np.classList.add('is-live'); state.textContent = (matchMedia('(hover: none)').matches ? 'Tap' : 'Click') + ' to hear this piano'; armFirstGesture(); }
+  } else { stopAll(); np.classList.add('is-live'); state.textContent = 'Press play to hear this piano'; armFirstGesture(); }
 
 
   // kawai lineup: arrows nudge the auto-scrolling track and pause it briefly
