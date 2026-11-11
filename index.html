@@ -109,6 +109,30 @@
   .path p { margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: var(--cream-2); }
   .path .go { margin-top: 26px; font-size: 15px; letter-spacing: 0.08em; color: var(--gold-ink); }
 
+  /* ---------- kawai lineup ---------- */
+  .lineup { padding: 0 0 100px; border-top: 1px solid var(--line); }
+  .lineup .wrap { padding: 0 48px; }
+  .lineup-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; padding: 96px 0 48px; }
+  .lineup-head .lead { margin-top: 0; }
+  .track-wrap { position: relative; overflow: hidden; }
+  .track-wrap::before, .track-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+  .track-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), rgba(244,241,232,0)); }
+  .track-wrap::after { right: 0; background: linear-gradient(to left, var(--cream), rgba(244,241,232,0)); }
+  .track { display: flex; width: max-content; animation: slide 70s linear infinite; }
+  .track-wrap:hover .track, .track-wrap.paused .track { animation-play-state: paused; }
+  .set { display: flex; gap: 20px; padding-right: 20px; }
+  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .dcard { flex: 0 0 auto; width: 250px; background: #fff; border: 1px solid #E2DCCC; border-radius: 3px; padding: 18px 18px 20px; color: var(--cream-ink); transition: border-color .25s, box-shadow .25s; }
+  .dcard:hover { border-color: var(--gold); box-shadow: 0 2px 0 0 var(--gold); }
+  .dcard img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+  .dcard .m { margin-top: 14px; font-family: var(--serif); font-size: 22px; font-weight: 600; line-height: 1.15; }
+  .dcard .f { margin-top: 3px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--cream-3); }
+  .arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--gold-ink); background: rgba(244,241,232,.9); color: var(--gold-ink); font-size: 26px; line-height: 1; cursor: pointer; font-family: var(--sans); display: flex; align-items: center; justify-content: center; padding: 0 0 3px; }
+  .arrow.prev { left: 24px; } .arrow.next { right: 24px; }
+  .arrow:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .lineup-foot { margin-top: 44px; text-align: center; }
+  @media (prefers-reduced-motion: reduce) { .track { animation: none; } }
+
   /* ---------- standard ---------- */
   .standard { background: var(--ink); }
   .standard .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
@@ -184,6 +208,14 @@
     .cards { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
     .trust { padding: 56px 20px; }
     .trust .wrap { grid-template-columns: 1fr; gap: 28px; }
+    .lineup { padding-bottom: 64px; }
+    .lineup .wrap { padding: 0 20px; }
+    .lineup-head { grid-template-columns: 1fr; gap: 16px; padding: 64px 0 32px; }
+    .track { animation-duration: 55s; }
+    .dcard { width: 190px; padding: 14px 14px 16px; }
+    .dcard .m { font-size: 19px; }
+    .track-wrap::before, .track-wrap::after { width: 40px; }
+    .arrow { display: none; }
     .path img { height: 240px; }
     .path .body { padding: 24px 22px 28px; }
     .path h3 { font-size: 30px; }
@@ -326,6 +358,136 @@
   </div>
 </section>
 
+<!-- ============ KAWAI DIGITAL LINEUP ============ -->
+<section class="cream lineup" id="lineup">
+  <div class="wrap">
+    <div class="lineup-head reveal">
+      <div>
+        <div class="eyebrow">Authorized Kawai dealer · nationwide</div>
+        <h2>The full Kawai digital lineup.</h2>
+      </div>
+      <p class="lead">Every model and every finish, new in the box, shipped free to any address in the lower 48 and set up in the room you want it in — with Kawai's factory warranty.</p>
+    </div>
+  </div>
+  <div class="track-wrap" id="track-wrap">
+    <button class="arrow prev" type="button" aria-label="Previous pianos">‹</button>
+    <div class="track" id="track">
+      <div class="set">
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca401-premium-satin-black.jpg" alt="Kawai CA401 in Premium Satin Black" loading="lazy">
+          <div class="m">Kawai CA401</div><div class="f">Premium Satin Black</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca401-premium-rosewood.jpg" alt="Kawai CA401 in Premium Rosewood" loading="lazy">
+          <div class="m">Kawai CA401</div><div class="f">Premium Rosewood</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca401-mocha-walnut.jpg" alt="Kawai CA401 in Mocha Walnut" loading="lazy">
+          <div class="m">Kawai CA401</div><div class="f">Mocha Walnut</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca401-premium-satin-white.jpg" alt="Kawai CA401 in Premium Satin White" loading="lazy">
+          <div class="m">Kawai CA401</div><div class="f">Premium Satin White</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca701-ebony-polish.jpg" alt="Kawai CA701 in Ebony Polish" loading="lazy">
+          <div class="m">Kawai CA701</div><div class="f">Ebony Polish</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca701-premium-rosewood.jpg" alt="Kawai CA701 in Premium Rosewood" loading="lazy">
+          <div class="m">Kawai CA701</div><div class="f">Premium Rosewood</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca701-white-maple.jpg" alt="Kawai CA701 in White Maple" loading="lazy">
+          <div class="m">Kawai CA701</div><div class="f">White Maple</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca701-premium-satin-white.jpg" alt="Kawai CA701 in Premium Satin White" loading="lazy">
+          <div class="m">Kawai CA701</div><div class="f">Premium Satin White</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/cn201-satin-black.jpg" alt="Kawai CN201 in Satin Black" loading="lazy">
+          <div class="m">Kawai CN201</div><div class="f">Satin Black</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/cn301-premium-satin-black.jpg" alt="Kawai CN301 in Premium Satin Black" loading="lazy">
+          <div class="m">Kawai CN301</div><div class="f">Premium Satin Black</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/cn301-premium-rosewood.jpg" alt="Kawai CN301 in Premium Rosewood" loading="lazy">
+          <div class="m">Kawai CN301</div><div class="f">Premium Rosewood</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/cn301-premium-satin-white.jpg" alt="Kawai CN301 in Premium Satin White" loading="lazy">
+          <div class="m">Kawai CN301</div><div class="f">Premium Satin White</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/kawai-dg30-digital-grand.jpg" alt="Kawai DG30 in Digital Grand · Ebony Polish" loading="lazy">
+          <div class="m">Kawai DG30</div><div class="f">Digital Grand · Ebony Polish</div>
+        </a>
+      </div>
+      <div class="set" aria-hidden="true">
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca401-premium-satin-black.jpg" alt="Kawai CA401 in Premium Satin Black" loading="lazy">
+          <div class="m">Kawai CA401</div><div class="f">Premium Satin Black</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca401-premium-rosewood.jpg" alt="Kawai CA401 in Premium Rosewood" loading="lazy">
+          <div class="m">Kawai CA401</div><div class="f">Premium Rosewood</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca401-mocha-walnut.jpg" alt="Kawai CA401 in Mocha Walnut" loading="lazy">
+          <div class="m">Kawai CA401</div><div class="f">Mocha Walnut</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca401-premium-satin-white.jpg" alt="Kawai CA401 in Premium Satin White" loading="lazy">
+          <div class="m">Kawai CA401</div><div class="f">Premium Satin White</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca701-ebony-polish.jpg" alt="Kawai CA701 in Ebony Polish" loading="lazy">
+          <div class="m">Kawai CA701</div><div class="f">Ebony Polish</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca701-premium-rosewood.jpg" alt="Kawai CA701 in Premium Rosewood" loading="lazy">
+          <div class="m">Kawai CA701</div><div class="f">Premium Rosewood</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca701-white-maple.jpg" alt="Kawai CA701 in White Maple" loading="lazy">
+          <div class="m">Kawai CA701</div><div class="f">White Maple</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/ca701-premium-satin-white.jpg" alt="Kawai CA701 in Premium Satin White" loading="lazy">
+          <div class="m">Kawai CA701</div><div class="f">Premium Satin White</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/cn201-satin-black.jpg" alt="Kawai CN201 in Satin Black" loading="lazy">
+          <div class="m">Kawai CN201</div><div class="f">Satin Black</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/cn301-premium-satin-black.jpg" alt="Kawai CN301 in Premium Satin Black" loading="lazy">
+          <div class="m">Kawai CN301</div><div class="f">Premium Satin Black</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/cn301-premium-rosewood.jpg" alt="Kawai CN301 in Premium Rosewood" loading="lazy">
+          <div class="m">Kawai CN301</div><div class="f">Premium Rosewood</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/cn301-premium-satin-white.jpg" alt="Kawai CN301 in Premium Satin White" loading="lazy">
+          <div class="m">Kawai CN301</div><div class="f">Premium Satin White</div>
+        </a>
+        <a class="dcard" href="https://shop.pianoamerica.com/collections/kawai-digitals">
+          <img src="./img/digital/kawai-dg30-digital-grand.jpg" alt="Kawai DG30 in Digital Grand · Ebony Polish" loading="lazy">
+          <div class="m">Kawai DG30</div><div class="f">Digital Grand · Ebony Polish</div>
+        </a>
+      </div>
+    </div>
+    <button class="arrow next" type="button" aria-label="Next pianos">›</button>
+  </div>
+  <div class="wrap lineup-foot reveal">
+    <a class="btn dark" href="https://shop.pianoamerica.com/collections/kawai-digitals">Browse all Kawai digitals</a>
+  </div>
+</section>
+
 <!-- ============ 88-POINT STANDARD ============ -->
 <section class="standard section" id="standard">
   <div class="wrap">
@@ -442,6 +604,28 @@
       stopAll(); np.classList.add('is-live'); state.textContent = (matchMedia('(hover: none)').matches ? 'Tap' : 'Click') + ' to hear this piano'; armFirstGesture();
     });
   } else { stopAll(); np.classList.add('is-live'); state.textContent = (matchMedia('(hover: none)').matches ? 'Tap' : 'Click') + ' to hear this piano'; armFirstGesture(); }
+
+
+  // kawai lineup: arrows nudge the auto-scrolling track and pause it briefly
+  var tw = document.getElementById('track-wrap'), tr = document.getElementById('track');
+  if (tw && tr) {
+    var offset = 0, timer;
+    function nudge(dir) {
+      var half = tr.scrollWidth / 2;
+      var cs = getComputedStyle(tr); var m = new DOMMatrixReadOnly(cs.transform); var x = m.m41;
+      tw.classList.add('paused'); tr.style.animation = 'none';
+      offset = x + dir * -290; if (offset < -half) offset += half; if (offset > 0) offset -= half;
+      tr.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1)'; tr.style.transform = 'translateX(' + offset + 'px)';
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        // resume the animation from where we are
+        var pct = -offset / half; tr.style.transition = ''; tr.style.transform = '';
+        tr.style.animation = ''; tr.style.animationDelay = (-pct * 70) + 's'; tw.classList.remove('paused');
+      }, 4000);
+    }
+    tw.querySelector('.prev').addEventListener('click', function () { nudge(-1); });
+    tw.querySelector('.next').addEventListener('click', function () { nudge(1); });
+  }
 
   // mobile menu
   var menu = document.getElementById('menu');
