@@ -58,7 +58,7 @@
   .play { flex: 0 0 auto; width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--gold); background: rgba(201,146,46,.12); color: var(--gold); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 17px; font-family: var(--sans); padding: 0; }
   .bars { display: flex; align-items: flex-end; gap: 3px; height: 46px; flex: 1 1 auto; }
   .bars b { display: block; flex: 1 1 auto; max-width: 4px; border-radius: 2px; background: rgba(244,241,232,.26); transform-origin: bottom; }
-  .is-playing .bars b { background: var(--gold); animation: eq 1.05s ease-in-out infinite alternate; }
+  .is-playing .bars b, .is-live .bars b { background: var(--gold); animation: eq 1.05s ease-in-out infinite alternate; }
   @keyframes eq { from { transform: scaleY(.32); } to { transform: scaleY(1); } }
   .np-title { font-family: var(--serif); font-size: 30px; line-height: 1.15; }
   .np-sub { margin-top: 7px; font-size: 15px; color: rgba(244,241,232,.68); line-height: 1.5; }
@@ -394,7 +394,7 @@
   var cards = document.querySelectorAll('[data-card]');
   var current = null; // 'hero' or a card element
   function stopAll() {
-    audio.pause();
+    audio.pause(); np.classList.remove('is-live');
     np.classList.remove('is-playing'); btn.textContent = '▶'; state.textContent = 'Paused'; btn.setAttribute('aria-label', 'Play the recording');
     cards.forEach(function (c) { c.classList.remove('is-playing'); c.querySelector('.play').textContent = '▶'; });
     current = null;
@@ -419,8 +419,29 @@
     });
   });
   audio.addEventListener('ended', stopAll);
-  // the hero box shows its equalizer moving on page load (no sound until the visitor presses play)
-  np.classList.add('is-playing'); btn.textContent = '❙❙'; state.textContent = 'Now playing';
+  // try to start the hero recording on load; browsers usually block sound until the visitor
+  // interacts, so if that fails show an honest "press play" state and start on their first tap/click
+  function startHero() {
+    stopAll(); current = 'hero';
+    np.classList.add('is-playing'); btn.textContent = '❙❙'; state.textContent = 'Now playing'; btn.setAttribute('aria-label', 'Pause the recording');
+    playSrc('./audio/now-playing.mp3');
+  }
+  function armFirstGesture() {
+    function go(e) {
+      document.removeEventListener('pointerdown', go, true); document.removeEventListener('keydown', go, true);
+      if (current === null && !(e.target && e.target.closest && e.target.closest('.play'))) startHero();
+    }
+    document.addEventListener('pointerdown', go, true); document.addEventListener('keydown', go, true);
+  }
+  audio.src = './audio/now-playing.mp3'; audio.setAttribute('data-src', './audio/now-playing.mp3');
+  var attempt = audio.play();
+  if (attempt && attempt.then) {
+    attempt.then(function () {
+      current = 'hero'; np.classList.add('is-playing'); btn.textContent = '❙❙'; state.textContent = 'Now playing'; btn.setAttribute('aria-label', 'Pause the recording');
+    }).catch(function () {
+      stopAll(); np.classList.add('is-live'); state.textContent = (matchMedia('(hover: none)').matches ? 'Tap' : 'Click') + ' to hear this piano'; armFirstGesture();
+    });
+  } else { stopAll(); np.classList.add('is-live'); state.textContent = (matchMedia('(hover: none)').matches ? 'Tap' : 'Click') + ' to hear this piano'; armFirstGesture(); }
 
   // mobile menu
   var menu = document.getElementById('menu');
