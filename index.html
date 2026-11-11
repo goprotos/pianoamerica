@@ -255,7 +255,7 @@
           <span class="tag">88-Point Inspected</span>
           <a class="btn" href="https://shop.pianoamerica.com/products/1984-yamaha-u1-polished-ebony">See this piano</a>
         </div>
-        <audio id="np-audio" preload="none"></audio>
+        <audio id="np-audio" preload="none" src="./audio/now-playing.mp3"></audio>
       </div>
     </div>
   </div>
@@ -272,21 +272,21 @@
     </div>
 
     <div class="cards">
-      <article class="card is-playing reveal" data-card>
+      <article class="card reveal" data-card data-audio="./audio/card-1.mp3">
         <div class="pic"><img src="./img/upright-ebony.jpg" alt="Yamaha U1M upright in polished ebony" loading="lazy"></div>
-        <div class="np-row"><button class="play" type="button" aria-label="Play 1982 Yamaha U1M">❙❙</button><div class="bars" data-bars="34" data-seed="1.3"></div></div>
+        <div class="np-row"><button class="play" type="button" aria-label="Play 1982 Yamaha U1M">▶</button><div class="bars" data-bars="34" data-seed="1.3"></div></div>
         <h3>1982 Yamaha U1M</h3>
         <div class="sub">Polished ebony · 48″ upright</div>
         <div class="foot"><span class="price">$5,800</span><a class="link" href="https://shop.pianoamerica.com/products/1982-yamaha-u1m-polished-ebony">View details</a></div>
       </article>
-      <article class="card reveal" data-card>
+      <article class="card reveal" data-card data-audio="./audio/card-2.mp3">
         <div class="pic"><img src="./img/upright-ebony.jpg" alt="Kawai K-30 upright in polished ebony" loading="lazy"></div>
         <div class="np-row"><button class="play" type="button" aria-label="Play 2001 Kawai K-30">▶</button><div class="bars" data-bars="34" data-seed="1.9"></div></div>
         <h3>2001 Kawai K-30</h3>
         <div class="sub">Polished ebony · 48″ upright</div>
         <div class="foot"><span class="price">$5,499</span><a class="link" href="https://shop.pianoamerica.com/products/2001-kawai-k-30-polished-ebony">View details</a></div>
       </article>
-      <article class="card reveal" data-card>
+      <article class="card reveal" data-card data-audio="./audio/card-3.mp3">
         <div class="pic"><img src="./img/grand-ebony.jpg" alt="Kawai KG3E grand in polished ebony" loading="lazy"></div>
         <div class="np-row"><button class="play" type="button" aria-label="Play 1989 Kawai KG3E">▶</button><div class="bars" data-bars="34" data-seed="2.5"></div></div>
         <h3>1989 Kawai KG3E</h3>
@@ -412,27 +412,38 @@
     }
   });
 
-  // hero now-playing toggle (plays real audio once an MP3 src is set on #np-audio)
+  // one shared player: the hero box and the three cards take turns
   var np = document.getElementById('np'), btn = document.getElementById('np-btn'), state = document.getElementById('np-state'), audio = document.getElementById('np-audio');
-  var hasAudio = !!audio.getAttribute('src');
-  function setHero(on) {
-    np.classList.toggle('is-playing', on);
-    btn.textContent = on ? '❙❙' : '▶'; state.textContent = on ? 'Now playing' : 'Paused';
-    btn.setAttribute('aria-label', on ? 'Pause the recording' : 'Play the recording');
-    if (hasAudio) { on ? audio.play() : audio.pause(); }
-  }
-  if (hasAudio) setHero(false);
-  btn.addEventListener('click', function () { setHero(!np.classList.contains('is-playing')); });
-  audio.addEventListener('ended', function () { setHero(false); });
-
-  // product cards: one plays at a time
   var cards = document.querySelectorAll('[data-card]');
+  var current = null; // 'hero' or a card element
+  function stopAll() {
+    audio.pause();
+    np.classList.remove('is-playing'); btn.textContent = '▶'; state.textContent = 'Paused'; btn.setAttribute('aria-label', 'Play the recording');
+    cards.forEach(function (c) { c.classList.remove('is-playing'); c.querySelector('.play').textContent = '▶'; });
+    current = null;
+  }
+  function playSrc(src) {
+    if (audio.getAttribute('data-src') !== src) { audio.src = src; audio.setAttribute('data-src', src); }
+    audio.currentTime = 0;
+    var p = audio.play(); if (p && p.catch) { p.catch(function () { /* no file yet: just animate */ }); }
+  }
+  btn.addEventListener('click', function () {
+    if (current === 'hero') { stopAll(); return; }
+    stopAll(); current = 'hero';
+    np.classList.add('is-playing'); btn.textContent = '❙❙'; state.textContent = 'Now playing'; btn.setAttribute('aria-label', 'Pause the recording');
+    playSrc('./audio/now-playing.mp3');
+  });
   cards.forEach(function (c) {
     c.querySelector('.play').addEventListener('click', function () {
-      cards.forEach(function (o) { o.classList.remove('is-playing'); o.querySelector('.play').textContent = '▶'; });
+      if (current === c) { stopAll(); return; }
+      stopAll(); current = c;
       c.classList.add('is-playing'); c.querySelector('.play').textContent = '❙❙';
+      playSrc(c.getAttribute('data-audio'));
     });
   });
+  audio.addEventListener('ended', stopAll);
+  // the hero box shows its equalizer moving on page load (no sound until the visitor presses play)
+  np.classList.add('is-playing'); btn.textContent = '❙❙'; state.textContent = 'Now playing';
 
   // mobile menu
   var menu = document.getElementById('menu');
