@@ -139,7 +139,16 @@
     }
     if (field.length || row.length) { row.push(field); rows.push(row); }
     var head = rows.shift().map(function (h) { return h.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, ''); });
-    return rows.filter(function (r) { return r.join('').trim(); }).map(function (r) { var o = {}; head.forEach(function (h, i) { o[h] = (r[i] || '').trim(); }); return o; });
+    return rows.filter(function (r) { return r.join('').trim(); }).map(function (r) {
+      var o = {};
+      head.forEach(function (h, i) {
+        h = h.replace(/^para_(\d)$/, 'para$1');            // "para 1" → para1
+        var v = (r[i] || '').trim();
+        if (v && !o[h]) o[h] = v;                           // duplicate headers: keep the first non-empty value
+        else if (!(h in o)) o[h] = v;
+      });
+      return o;
+    });
   }
 
   // Google Drive links (from a Form upload or a Share → Copy link) become a displayable image address
