@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piano America · Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+  :root { --ink: #0B0A09; --cream: #F4F1E8; --cream-ink: #14120F; --cream-2: #4A443A; --cream-3: #6B6457; --line: #DFD8C7; --gold: #C9922E; --gold-ink: #8A6A1F; --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--cream); color: var(--cream-ink); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  header { background: var(--ink); color: var(--cream); }
+  header .wrap { display: flex; align-items: center; gap: 14px; height: 76px; }
+  header img { height: 48px; width: auto; }
+  header .brand { font-family: var(--serif); font-size: 20px; letter-spacing: .02em; }
+  header .tel { margin-left: auto; color: var(--gold); font-size: 14px; letter-spacing: .06em; white-space: nowrap; }
+  .hero { padding: 56px 0 10px; text-align: center; }
+  .portrait { width: 210px; height: 210px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); background: #fff; margin: 0 auto 26px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 64px; color: var(--gold-ink); }
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 46px; line-height: 1.1; margin: 0 0 8px; letter-spacing: -.01em; }
+  .sub { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--cream-3); margin: 0 0 30px; }
+  .fund { background: #fff; border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); padding: 26px 28px; margin: 24px 0 36px; text-align: center; font-family: var(--serif); font-size: 23px; line-height: 1.45; }
+  .fund i { color: var(--gold-ink); }
+  .voice { font-size: 17px; color: var(--cream-2); margin: 0 0 36px; }
+  .voice p { margin: 0 0 16px; }
+  .sig { font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--cream-ink); }
+  .cta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 18px; }
+  .btn { display: block; text-align: center; padding: 22px 18px; background: var(--ink); color: var(--cream); border-radius: 2px; transition: background .2s; }
+  .btn:hover { background: #000; }
+  .btn .big { display: block; font-family: var(--serif); font-size: 23px; margin-bottom: 4px; }
+  .btn .small { display: block; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .code { text-align: center; font-size: 14px; color: var(--cream-3); margin: 0 0 48px; }
+  .code b { font-family: var(--sans); font-weight: 500; letter-spacing: .12em; color: var(--cream-ink); border: 1px solid var(--line); background: #fff; padding: 4px 10px; border-radius: 2px; }
+  h2.sec { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-ink); text-align: center; margin: 0 0 26px; font-weight: 400; }
+  .trust { border-top: 1px solid var(--line); padding: 44px 0 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 34px; }
+  .item h3 { margin: 0 0 5px; font-family: var(--serif); font-size: 21px; font-weight: 600; }
+  .item p { margin: 0; font-size: 15px; color: var(--cream-3); }
+  .award { border: 2px solid var(--gold); padding: 34px 30px; margin: 46px 0; text-align: center; background: #fff; }
+  .award .label { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-ink); margin-bottom: 12px; }
+  .award .name { font-family: var(--serif); font-size: 30px; margin: 0 0 4px; }
+  .award .school { font-size: 16px; color: var(--cream-3); margin: 0; }
+  footer { border-top: 1px solid var(--line); padding: 30px 0 60px; text-align: center; font-size: 14px; color: var(--cream-3); }
+  footer a { color: var(--cream-ink); }
+  .state { text-align: center; padding: 120px 24px; color: var(--cream-3); }
+  .state h1 { font-size: 34px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 620px) { h1 { font-size: 34px; } .grid, .cta { grid-template-columns: 1fr; } .fund { font-size: 19px; padding: 20px 18px; } .hero { padding-top: 40px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="https://www.pianoamerica.com"><img src="/img/badge.png" alt="Piano America"></a>
+    <span class="brand">Piano America</span>
+    <a class="tel" href="tel:3043123608">(304) 312-3608</a>
+  </div>
+</header>
+
+<div id="loading" class="state"><p>Loading…</p></div>
+
+<div id="missing" class="state" hidden>
+  <h1>We couldn't find that studio page.</h1>
+  <p>Check the link you were given, or call us at <a href="tel:3043123608">(304) 312-3608</a>.</p>
+  <p><a href="https://www.pianoamerica.com">pianoamerica.com</a></p>
+</div>
+
+<main id="page" class="wrap" hidden>
+  <section class="hero">
+    <img id="photo" class="portrait" alt="" hidden>
+    <div id="initials" class="portrait" hidden></div>
+    <h1 id="name"></h1>
+    <p class="sub" id="sub"></p>
+  </section>
+
+  <div class="fund">Instruments purchased through this studio support the <i id="fund"></i>, awarded each year to one of our students.</div>
+
+  <div class="voice" id="voice"></div>
+
+  <div class="cta">
+    <a class="btn" id="btn-acoustic" href="#"><span class="big">Used Acoustic Pianos</span><span class="small">Kawai &amp; Yamaha · recording of every instrument</span></a>
+    <a class="btn" id="btn-digital" href="#"><span class="big">New Kawai Digitals</span><span class="small">Shipped free · set up in your home</span></a>
+  </div>
+  <p class="code" id="code-line" hidden>Ordering by phone? Mention <b id="code"></b> so your purchase counts toward the fund.</p>
+
+  <section class="trust">
+    <h2 class="sec">What comes with every instrument</h2>
+    <div class="grid">
+      <div class="item"><h3>The 88-Point Standard</h3><p>Every acoustic inspected point by point by a Registered Piano Technician, who signs the report by name. You read it before you buy.</p></div>
+      <div class="item"><h3>Every Key on Video</h3><p>All 88 keys and all three pedals, recorded on the actual instrument you would receive — never a stock clip.</p></div>
+      <div class="item"><h3>Ten-Year Warranty</h3><p>Parts and labor on every restored acoustic, for ten years. Not a limited warranty on selected components.</p></div>
+      <div class="item"><h3>Free In-Home Tuning</h3><p>A technician visits after delivery, once the piano has settled into your room, at no charge.</p></div>
+      <div class="item"><h3>Published Prices</h3><p>Every price is on the website. No negotiation, no quote request, and no price that depends on who is asking.</p></div>
+      <div class="item"><h3>Trade-Up Guarantee</h3><p>Your full purchase price back as credit toward a larger instrument, whenever the student outgrows this one.</p></div>
+    </div>
+  </section>
+
+  <div class="award" id="award" hidden>
+    <div class="label" id="award-label"></div>
+    <p class="name" id="award-name"></p>
+    <p class="school" id="award-school"></p>
+  </div>
+</main>
+
+<footer>
+  <p>Piano America LLC · Wheeling, West Virginia · <a href="tel:3043123608">(304) 312-3608</a><br><a href="https://www.pianoamerica.com">pianoamerica.com</a></p>
+</footer>
+
+<script>
+(function () {
+  // ===== 1. the published registry sheet (File → Share → Publish to web → CSV) =====
+  var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR6zfwYV8Su03CW_FDWS9pZZIiejOR5J_K4AhElZhcXr8uHWaftuC_vb-MLL89ddKPfjDIzxpP-Lp50/pub?gid=780755418&single=true&output=csv';
+  var SHOP = 'https://shop.pianoamerica.com';
+
+  // ===== 2. which studio? /studio/whitmore  (or ?h=whitmore while testing) =====
+  var m = location.pathname.match(/\/studio\/([a-z0-9-]+)/i);
+  var handle = (m ? m[1] : new URLSearchParams(location.search).get('h') || '').toLowerCase();
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  // small CSV parser that understands quoted fields with commas and line breaks
+  function parseCSV(text) {
+    var rows = [], row = [], field = '', q = false;
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i], n = text[i + 1];
+      if (q) { if (c === '"' && n === '"') { field += '"'; i++; } else if (c === '"') { q = false; } else { field += c; } }
+      else if (c === '"') { q = true; }
+      else if (c === ',') { row.push(field); field = ''; }
+      else if (c === '\n' || c === '\r') { if (c === '\r' && n === '\n') i++; row.push(field); rows.push(row); row = []; field = ''; }
+      else { field += c; }
+    }
+    if (field.length || row.length) { row.push(field); rows.push(row); }
+    var head = rows.shift().map(function (h) { return h.trim().toLowerCase(); });
+    return rows.filter(function (r) { return r.join('').trim(); }).map(function (r) { var o = {}; head.forEach(function (h, i) { o[h] = (r[i] || '').trim(); }); return o; });
+  }
+
+  function show(t) {
+    document.title = t.name + ' · ' + (t.studio || 'Piano Studio') + ' · Piano America';
+    if (t.photo_url) { $('photo').src = t.photo_url; $('photo').alt = t.name + ' at the piano'; $('photo').hidden = false; }
+    else { $('initials').textContent = t.name.split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase(); $('initials').hidden = false; }
+    $('name').textContent = t.name;
+    $('sub').textContent = [t.studio, [t.city, t.state].filter(Boolean).join(', ')].filter(Boolean).join(' · ');
+    $('fund').textContent = t.fund_name || (t.studio ? t.studio + ' Scholarship Fund' : t.name + ' Scholarship Fund');
+    var paras = [t.para1, t.para2, t.para3].filter(Boolean).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+    $('voice').innerHTML = paras + '<p class="sig">— ' + esc(t.name) + (t.studio ? ', ' + esc(t.studio) : '') + '</p>';
+    var ref = '?ref=' + encodeURIComponent(t.handle);
+    $('btn-acoustic').href = SHOP + '/collections/used-acoustics' + ref;
+    $('btn-digital').href = SHOP + '/collections/kawai-digitals' + ref;
+    if (t.coupon_code) { $('code').textContent = t.coupon_code.toUpperCase(); $('code-line').hidden = false; }
+    if (t.recipient_name) {
+      $('award-label').textContent = (t.recipient_year ? t.recipient_year + ' ' : '') + 'Scholarship Recipient';
+      $('award-name').textContent = t.recipient_name; $('award-school').textContent = t.recipient_school || '';
+      $('award').hidden = false;
+    }
+    $('loading').hidden = true; $('page').hidden = false;
+  }
+  function missing() { $('loading').hidden = true; $('missing').hidden = false; }
+
+  if (!handle || SHEET_CSV_URL === 'SHEET_CSV_URL') { missing(); return; }
+  fetch(SHEET_CSV_URL + (SHEET_CSV_URL.indexOf('?') > -1 ? '&' : '?') + 'v=' + Date.now(), { cache: 'no-store' })
+    .then(function (r) { return r.text(); })
+    .then(function (text) {
+      var rows = parseCSV(text);
+      var t = rows.filter(function (r) { return r.handle.toLowerCase() === handle && (r.status || 'on').toLowerCase() !== 'off'; })[0];
+      t ? show(t) : missing();
+    })
+    .catch(missing);
+})();
+</script>
+</body>
+</html>
