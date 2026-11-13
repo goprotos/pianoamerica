@@ -116,7 +116,7 @@
 <script>
 (function () {
   // ===== 1. the published registry sheet (File → Share → Publish to web → CSV) =====
-  var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR6zfwYV8Su03CW_FDWS9pZZIiejOR5J_K4AhElZhcXr8uHWaftuC_vb-MLL89ddKPfjDIzxpP-Lp50/pub?gid=780755418&single=true&output=csv';
+  var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR6zfwYV8Su03CW_FDWS9pZZIiejOR5J_K4AhElZhcXr8uHWaftuC_vb-MLL89ddKPfjDIzxpP-Lp50/pub?gid=189938557&single=true&output=csv';
   var SHOP = 'https://shop.pianoamerica.com';
 
   // ===== 2. which studio? /studio/whitmore  (or ?h=whitmore while testing) =====
@@ -138,13 +138,22 @@
       else { field += c; }
     }
     if (field.length || row.length) { row.push(field); rows.push(row); }
-    var head = rows.shift().map(function (h) { return h.trim().toLowerCase(); });
+    var head = rows.shift().map(function (h) { return h.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, ''); });
     return rows.filter(function (r) { return r.join('').trim(); }).map(function (r) { var o = {}; head.forEach(function (h, i) { o[h] = (r[i] || '').trim(); }); return o; });
+  }
+
+  // Google Drive links (from a Form upload or a Share → Copy link) become a displayable image address
+  function driveImage(u) {
+    u = (u || '').trim(); if (!u) return '';
+    var id = (u.match(/[?&]id=([A-Za-z0-9_-]+)/) || u.match(/\/d\/([A-Za-z0-9_-]+)/) || [])[1];
+    if (id && /drive\.google\.com|docs\.google\.com/.test(u)) return 'https://drive.google.com/thumbnail?id=' + id + '&sz=w600';
+    return u;
   }
 
   function show(t) {
     document.title = t.name + ' · ' + (t.studio || 'Piano Studio') + ' · Piano America';
-    if (t.photo_url) { $('photo').src = t.photo_url; $('photo').alt = t.name + ' at the piano'; $('photo').hidden = false; }
+    var photo = driveImage(t.photo_url);
+    if (photo) { $('photo').src = photo; $('photo').alt = t.name + ' at the piano'; $('photo').hidden = false; }
     else { $('initials').textContent = t.name.split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase(); $('initials').hidden = false; }
     $('name').textContent = t.name;
     $('sub').textContent = [t.studio, [t.city, t.state].filter(Boolean).join(', ')].filter(Boolean).join(' · ');
