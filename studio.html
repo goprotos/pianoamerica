@@ -46,6 +46,8 @@
   .award .label { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-ink); margin-bottom: 12px; }
   .award .name { font-family: var(--serif); font-size: 30px; margin: 0 0 4px; }
   .award .school { font-size: 16px; color: var(--cream-3); margin: 0; }
+  .balance { text-align: center; margin: 14px 0 0; font-size: 15px; color: var(--cream-3); }
+  .balance b { font-family: var(--serif); font-size: 22px; color: var(--cream-ink); font-weight: 600; margin-right: 6px; }
   footer { border-top: 1px solid var(--line); padding: 30px 0 60px; text-align: center; font-size: 14px; color: var(--cream-3); }
   footer a { color: var(--cream-ink); }
   .state { text-align: center; padding: 120px 24px; color: var(--cream-3); }
@@ -60,7 +62,7 @@
   <div class="wrap">
     <a href="https://www.pianoamerica.com"><img src="/img/badge.png" alt="Piano America"></a>
     <span class="brand">Piano America</span>
-    <a class="tel" href="tel:3043123608">(304) 312-3608</a>
+    <a class="tel" href="tel:8003404660">(800) 340-4660</a>
   </div>
 </header>
 
@@ -68,7 +70,7 @@
 
 <div id="missing" class="state" hidden>
   <h1>We couldn't find that studio page.</h1>
-  <p>Check the link you were given, or call us at <a href="tel:3043123608">(304) 312-3608</a>.</p>
+  <p>Check the link you were given, or call us at <a href="tel:8003404660">(800) 340-4660</a>.</p>
   <p><a href="https://www.pianoamerica.com">pianoamerica.com</a></p>
 </div>
 
@@ -89,6 +91,7 @@
     <a class="btn" id="btn-digital" href="#"><span class="big">New Kawai Digitals</span><span class="small">Shipped free · set up in your home</span></a>
   </div>
   <p class="code" id="code-line" hidden>Ordering by phone? Mention <b id="code"></b> so your purchase counts toward the fund.</p>
+  <p class="balance" id="balance" hidden><b id="balance-amt"></b> currently in the fund<span id="balance-opened"></span></p>
 
   <section class="trust">
     <h2 class="sec">What comes with every instrument</h2>
@@ -110,7 +113,7 @@
 </main>
 
 <footer>
-  <p>Piano America LLC · Wheeling, West Virginia · <a href="tel:3043123608">(304) 312-3608</a><br><a href="https://www.pianoamerica.com">pianoamerica.com</a></p>
+  <p>Piano America LLC · Wheeling, West Virginia · <a href="tel:8003404660">(800) 340-4660</a><br><a href="https://www.pianoamerica.com">pianoamerica.com</a></p>
 </footer>
 
 <script>
@@ -173,6 +176,12 @@
     $('btn-acoustic').href = SHOP + '/collections/used-acoustics' + ref;
     $('btn-digital').href = SHOP + '/collections/kawai-digitals' + ref;
     if (t.coupon_code) { $('code').textContent = t.coupon_code.toUpperCase(); $('code-line').hidden = false; }
+    if (t.fund_balance) {
+      var n = parseFloat(String(t.fund_balance).replace(/[^0-9.]/g, ''));
+      $('balance-amt').textContent = isNaN(n) ? t.fund_balance : '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+      $('balance-opened').textContent = t.fund_opened ? ' · opened ' + t.fund_opened : '';
+      $('balance').hidden = false;
+    }
     if (t.recipient_name) {
       $('award-label').textContent = (t.recipient_year ? t.recipient_year + ' ' : '') + 'Scholarship Recipient';
       $('award-name').textContent = t.recipient_name; $('award-school').textContent = t.recipient_school || '';
